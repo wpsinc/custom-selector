@@ -1077,9 +1077,20 @@ var script = defineComponent({
   watch: {
     idOfSelected(val, oldVal) {
       this.$emit("select", val);
+    },
+
+    localSelected(val, oldVal) {
+      this.$emit("select", val);
     }
 
+  },
+
+  data() {
+    return {
+      localSelected: this.idOfSelected
+    };
   }
+
 });
 
 const _hoisted_1 = {
@@ -1108,8 +1119,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return _ctx.show ? (openBlock(), createBlock(_component_Listbox, {
     key: 0,
-    modelValue: _ctx.idOfSelected,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => _ctx.idOfSelected = $event),
+    modelValue: _ctx.localSelected,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => _ctx.localSelected = $event),
     as: "div"
   }, {
     default: withCtx(() => [createVNode(_component_ListboxLabel, {

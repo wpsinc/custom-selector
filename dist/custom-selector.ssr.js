@@ -1110,7 +1110,15 @@ var ListboxOption = /*#__PURE__*/vue.defineComponent({
   watch: {
     idOfSelected: function idOfSelected(val, oldVal) {
       this.$emit("select", val);
+    },
+    localSelected: function localSelected(val, oldVal) {
+      this.$emit("select", val);
     }
+  },
+  data: function data() {
+    return {
+      localSelected: this.idOfSelected
+    };
   }
 });var _hoisted_1 = {
   class: "relative mt-1"
@@ -1138,9 +1146,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return _ctx.show ? (vue.openBlock(), vue.createBlock(_component_Listbox, {
     key: 0,
-    modelValue: _ctx.idOfSelected,
+    modelValue: _ctx.localSelected,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.idOfSelected = $event;
+      return _ctx.localSelected = $event;
     }),
     as: "div"
   }, {
