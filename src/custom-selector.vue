@@ -1,5 +1,5 @@
 <template>
-    <Listbox v-if="show" v-model="localSelected" as="div">
+    <Listbox v-if="show" v-model="idOfSelected" as="div">
         <ListboxLabel class="block">
             <slot name="label" />
         </ListboxLabel>
@@ -87,15 +87,8 @@ export default defineComponent({
         idOfSelected(val, oldVal) {
             this.$emit("select", val);
         },
-      localSelected(val, oldVal) {
-        this.$emit("select", val);
-      },
     },
-  data:{
-      localSelected(){
-        return this.idOfSelected
-      }
-  }
+  
 });
 </script>
 

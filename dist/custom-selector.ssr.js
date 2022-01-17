@@ -1100,9 +1100,6 @@ var ListboxOption = /*#__PURE__*/vue.defineComponent({
       default: false
     }
   },
-  mounted: function mounted() {
-    console.log("selector mounted");
-  },
   components: {
     Listbox: Listbox,
     ListboxButton: ListboxButton,

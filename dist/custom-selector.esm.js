@@ -1067,11 +1067,6 @@ var script = defineComponent({
       default: false
     }
   },
-
-  mounted() {
-    console.log("selector mounted");
-  },
-
   components: {
     Listbox,
     ListboxButton,
