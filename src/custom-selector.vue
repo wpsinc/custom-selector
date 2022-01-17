@@ -1,5 +1,5 @@
 <template>
-    <Listbox v-if="show" v-model="idOfSelected" as="div">
+    <Listbox v-if="show" v-model="localSelected" as="div">
         <ListboxLabel class="block">
             <slot name="label" />
         </ListboxLabel>
@@ -76,9 +76,6 @@ export default defineComponent({
         subKey: { type: String, default: "id" },
         loading: { type: Boolean, default: false },
     },
-    mounted() {
-        console.log("selector mounted");
-    },
     components: {
         Listbox,
         ListboxButton,
@@ -90,7 +87,15 @@ export default defineComponent({
         idOfSelected(val, oldVal) {
             this.$emit("select", val);
         },
+      localSelected(val, oldVal) {
+        this.$emit("select", val);
+      },
     },
+  data:{
+      localSelected(){
+        return this.idOfSelected
+      }
+  }
 });
 </script>
 
